@@ -1,0 +1,8 @@
+{
+	"routes": [
+	  {
+		"source": "^/(.*)$",
+		"destination": "jira-cloud-connector-app"
+	  }
+	]
+  }
