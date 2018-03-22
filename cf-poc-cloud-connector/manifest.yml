@@ -1,0 +1,32 @@
+---
+applications:
+- name: cf-poc-jira-cloud-connector
+  host: cf-poc-jira-cloud-connector-i331275
+  path: approuter
+  memory: 265MB
+  disk_quota: 512MB
+  buildpack: nodejs_buildpack
+  random-route: false
+  env:
+    destinations: >
+      [
+        {
+          "name": "jira-cloud-connector-app",
+          "url": "https://cf-poc-jira-cloud-connector-app-i331275.cfapps.eu10.hana.ondemand.com"
+          "forwardAuthToken": true
+        }
+      ]
+  services:
+    - cf-poc-cc-uaa
+- name: cf-poc-jira-cloud-connector-app
+  host: cf-poc-jira-cloud-connector-app-i331275
+  memory: 128MB
+  disk_quota: 512MB
+  random-route: false
+  buildpack: python_buildpack
+  env:
+    SAP_JWT_TRUST_ACL: '[{"clientid":"*","identityzone":"*"}]'
+  services:
+    - cf-poc-cc-uaa
+    - cf-poc-cc-connectivity
+    - cf-poc-cc-destination
