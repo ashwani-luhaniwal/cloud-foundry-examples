@@ -1,0 +1,16 @@
+{
+  "name": "cf-poc-jira-cloud-connector-app-router",
+  "version": "1.0.0",
+  "description": "App router for POC of corp JIRA integration with Cloud Connector",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "guilherme.dellagustin@sap.com",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@sap/approuter": "^2.10.0",
+    "express": "^4.16.3",
+    "request": "^2.85.0"
+  }
+}
