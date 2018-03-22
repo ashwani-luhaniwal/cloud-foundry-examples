@@ -1,0 +1,13 @@
+Werkzeug
+Jinja2
+MarkupSafe
+itsdangerous
+click
+furl
+six
+orderedmultidict
+Flask
+cfenv
+urllib3
+sap_xssec
+sap_py_jwt
