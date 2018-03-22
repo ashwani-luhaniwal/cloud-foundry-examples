@@ -1,0 +1,17 @@
+{
+	"[python]" : {
+		"editor.insertSpaces": true
+	},
+	"[javascript]" : {
+		"editor.insertSpaces": false
+	},
+	"[xml]" : {
+		"editor.insertSpaces": false
+	},
+	"[html]": {
+		"editor.insertSpaces": false
+	},
+	"[json]": {
+		"editor.insertSpaces": false
+	}
+}
