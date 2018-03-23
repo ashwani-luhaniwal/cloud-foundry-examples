@@ -1,0 +1,21 @@
+{
+	"welcomeFile": "index.html",
+	"routes": [
+		{
+			"source": "/app/resources",
+			"target": "/",
+			"destination": "ui5"
+		}, {
+			"source": "/app/",
+			"target": "/",
+			"destination": "dest-to-app"
+		}, {
+			"source": "/",
+			"localDir": "static/"
+		}, {
+			"source": "/service",
+			"target": "/",
+			"destination": "dest-to-app"
+		}
+	]
+}
