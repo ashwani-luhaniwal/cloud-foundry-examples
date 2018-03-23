@@ -1,10 +1,15 @@
 import os
 import requests
+import imp
 
 from flask import Flask, make_response, request
 from cfenv import AppEnv
 
-from sap import xssec
+# from sap import xssec
+# imp.load_source('sapjwt', './sap/xssec/sapjwt/__init__.py')
+# imp.load_source('deps', './sap/xssec/sapjwt/deps/__init__.py')
+imp.load_source('sapjwt', './sap/xssec/sapjwt/__init__.py')
+imp.load_source('xssec', './sap/xssec/__init__.py') 
 
 try:
     env = AppEnv()
@@ -54,7 +59,7 @@ def call_jira():
     # >>> --- Get destination for on premise service ----------------------------
 
     try:
-        response = requests.get(vs_destination_credentials['uri'] + '/destination-configuration/v1/destinations/JIRA_QA', headers={
+        response = requests.get(vs_destination_credentials['uri'] + '/destination-configuration/v1/destinations/', headers={
             'Accept': 'application/json',
             'Authorization': 'Bearer ' + jwt_destination,
         })
@@ -84,7 +89,7 @@ def call_jira():
     }
 
     try:
-        response = requests.get(destination['URL'] + '/rest/api/2/serverInfo', proxies=proxies, headers={
+        response = requests.get(destination['URL'] + '/sap/opu/odata/SAP/Z_ASSET_MANAGEMENT_SRV', proxies=proxies, headers={
             'Accept': 'application/json',
             'SAP-Connectivity-Authentication': 'Bearer ' + jwt_user_auth,
             'Proxy-Authorization': 'Bearer ' + jwt_connectivity
