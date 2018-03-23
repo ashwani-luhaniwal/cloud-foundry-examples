@@ -8,11 +8,12 @@ applications:
   buildpack: nodejs_buildpack
   random-route: false
   env:
+    SAP_JWT_TRUST_ACL: '[{"clientid":"*","identityzone":"*"}]'
     destinations: >
       [
         {
           "name": "jira-cloud-connector-app",
-          "url": "https://cf-poc-jira-cloud-connector-app-i331275.cfapps.eu10.hana.ondemand.com"
+          "url": "https://cf-poc-jira-cloud-connector-app-i331275.cfapps.eu10.hana.ondemand.com",
           "forwardAuthToken": true
         }
       ]
